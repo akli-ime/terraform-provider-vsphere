@@ -169,7 +169,10 @@ The following attributes are exported:
 * `instance_uuid` - The instance UUID of the virtual machine or template.
 * `vtpm` - Indicates whether a virtual Trusted Platform Module (TPM) device is present on the virtual machine.
 * `evc_mode` - Enhanced vMotion Compatibility mode.
-
+* `custom_attributes` - A map of custom attribute IDs to their corresponding values assigned to the virtual machine. 
+   The map keys represent the custom attribute IDs and the values represent the attribute values.
+* `tags` - A list of tag IDs attached to the virtual machine. 
+   Each value represents the unique identifier of a tag assigned to the virtual machine.
 ~> **NOTE:** Keep in mind when using the results of `scsi_type` and
 `network_interface_types`, that the `vsphere_virtual_machine` resource only
 supports a subset of the types returned from this data source. See the
