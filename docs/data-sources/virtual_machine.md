@@ -74,7 +74,10 @@ The following arguments are supported:
   scan for disk attributes and controller types on. Default: `1`.
 * `nvme_controller_scan_count` - (Optional) The number of NVMe controllers to
   scan for disk attributes and controller types on. Default: `1`.
-
+* `custom_attributes` - A map of custom attribute IDs to their corresponding values assigned to the virtual machine. 
+   The map keys represent the custom attribute IDs and the values represent the attribute values.
+* `tags` - A list of tag IDs attached to the virtual machine. 
+   Each value represents the unique identifier of a tag assigned to the virtual machine.
 [docs-about-morefs]: /docs/providers/vsphere/index.html#use-of-managed-object-references-by-the-vsphere-provider
 
 ~> **NOTE:** For best results, ensure that all the disks on any templates you
@@ -112,7 +115,8 @@ The following attributes are exported:
   there are multiple controller types. Only the first number of controllers
   defined by `scsi_controller_scan_count` are scanned.
 * `scsi_bus_sharing` - Mode for sharing the SCSI bus. The modes are
-  physicalSharing, virtualSharing, and noSharing. Only the first number of
+  `physicalSharing`, `virtualSharing`, `noSharing`, or `mixed` when
+  there are multiple sharing types across controllers. Only the first number of
   controllers defined by `scsi_controller_scan_count` are scanned.
 * `disks` - Information about each of the disks on this virtual machine or
   template. These are sorted by bus and unit number so that they can be applied
